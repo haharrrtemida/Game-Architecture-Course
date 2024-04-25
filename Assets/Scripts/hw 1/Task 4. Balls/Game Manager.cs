@@ -24,11 +24,21 @@ public class GameManager : MonoBehaviour
 
     private void SetwResultWinText()
     {
-        _resultText.text = "Вы победили! 😊";
+        _resultText.text = "Вы победили!";
+        DeactivateAllBalls();
     }
 
     private void SetwResultLoseText()
     {
-        _resultText.text = "Вы проиграли! 😣";
+        _resultText.text = "Вы проиграли!";
+        DeactivateAllBalls();
+    }
+
+    private void DeactivateAllBalls()
+    {
+        foreach (Ball ball in Spawner.BallsCollection)
+        {
+            Destroy(ball.GetComponent<Ball>());
+        }
     }
 }

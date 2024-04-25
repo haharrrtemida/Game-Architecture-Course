@@ -10,13 +10,13 @@ public abstract class GameRule : IGameRule
 
     protected virtual void WinGame()
     {
-        Debug.Log("Вы победили! 😊");
+        Debug.Log("Вы победили!");
         OnWinGame?.Invoke();
     }
 
     protected virtual void LoseGame()
     {
-        Debug.Log("Вы проиграли! 😣");
+        Debug.Log("Вы проиграли!");
         OnLoseGame?.Invoke();
     }
 }

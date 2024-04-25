@@ -5,8 +5,8 @@ public class GunInputHandler : MonoBehaviour
 {
     public event Action<Gun> OnGunChanged;
     public event Action<Gun> OnGunInfoChanged;
-    [SerializeField] private Gun _currentGun;
     [SerializeField] private Gun[] _guns;
+    private Gun _currentGun;
 
     public Gun CurrentGun => _currentGun;
 

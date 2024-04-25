@@ -17,5 +17,5 @@ MonoBehaviour:
   <FireForce>k__BackingField: 40
   <Cooldown>k__BackingField: 0.7
   <IsInfinite>k__BackingField: 0
-  <Projectile>k__BackingField: {fileID: 4414356458138929960, guid: a49832361c59b39c39a8be411199ba6f, type: 3}
+  <Projectile>k__BackingField: {fileID: 4414356458138929960, guid: 52bc21ae3ab06104b9a2ba1c8ae43621, type: 3}
   <BulletsInClip>k__BackingField: 4
