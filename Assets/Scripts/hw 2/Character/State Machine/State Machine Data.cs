@@ -1,26 +1,27 @@
 using System;
+using UnityEngine;
 
 namespace hw2
 {  
     public class StateMachineData
     {
-        public float XVelocity;
+        public Vector2 XZVelocity;
         public float YVelocity;
 
         private float _speed;
-        private float _xInput;
+        private Vector2 _xzInput;
 
-        public float XInput
+        public Vector2 XZInput
         {
-            get => _xInput;
+            get => _xzInput;
             set
             {
-                if (value < -1 || value > 1)
+                if (value.x < -1 || value.x > 1 || value.y < -1 || value.y > 1)
                 {
                     throw new ArgumentOutOfRangeException(nameof(value));
                 }
                 
-                _xInput = value;
+                _xzInput = value;
             }
         }
 
