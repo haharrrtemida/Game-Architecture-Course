@@ -14,7 +14,9 @@ namespace hw2
             _states = new List<IState>()
             {
                 new IdlingState(this, data, character),
+                new WalkingState(this, data, character),
                 new RunningState(this, data, character),
+                new SprintingState(this, data, character),
                 new JumpingState(this, data, character),
                 new FallingState(this, data, character)
             };

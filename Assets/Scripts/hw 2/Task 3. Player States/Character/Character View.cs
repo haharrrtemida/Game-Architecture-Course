@@ -8,7 +8,9 @@ namespace hw2
         private const string IS_MOVEMENT = "IsMovement";
         private const string IS_GROUNDED = "IsGrounded";
         private const string IS_IDLING = "IsIdling";
+        private const string IS_WALKING = "IsWalking";
         private const string IS_RUNNIG = "IsRunning";
+        private const string IS_SPRINTING = "IsSprinting";
         private const string IS_AIRBORNE = "IsAirborne";
         private const string IS_JUMPING = "IsJumping";
         private const string IS_FALLING = "IsFalling";
@@ -26,8 +28,14 @@ namespace hw2
         public void StartIdling() => _animator.SetBool(IS_IDLING, true);
         public void StopIdling() => _animator.SetBool(IS_IDLING, false);
 
+        public void StartWalking() => _animator.SetBool(IS_WALKING, true);
+        public void StopWalking() => _animator.SetBool(IS_WALKING, false);
+
         public void StartRunning() => _animator.SetBool(IS_RUNNIG, true);
         public void StopRunning() => _animator.SetBool(IS_RUNNIG, false);
+
+        public void StartSprinting() => _animator.SetBool(IS_SPRINTING, true);
+        public void StopSprinting() => _animator.SetBool(IS_SPRINTING, false);
 
         public void StartAirborne() => _animator.SetBool(IS_AIRBORNE, true);
         public void StopAirborne() => _animator.SetBool(IS_AIRBORNE, false);

@@ -44,6 +44,24 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Walk"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""6644458b-4eb3-45de-afbe-0b747411aadb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Sprint"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""eca83d1b-ce7f-4d17-afd6-2bcab6999c5b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -112,6 +130,28 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f651ac3e-714f-4da0-b454-36e18b43cbc5"",
+                    ""path"": ""<Keyboard>/leftCtrl"",
+                    ""interactions"": ""Hold(duration=0.1,pressPoint=0.1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Walk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4f123e65-b95b-47e9-9cf4-b69ba4079a01"",
+                    ""path"": ""<Keyboard>/leftShift"",
+                    ""interactions"": ""Hold(duration=0.1,pressPoint=0.1)"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Sprint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -122,6 +162,8 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Jump = m_Movement.FindAction("Jump", throwIfNotFound: true);
+        m_Movement_Walk = m_Movement.FindAction("Walk", throwIfNotFound: true);
+        m_Movement_Sprint = m_Movement.FindAction("Sprint", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -185,12 +227,16 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Jump;
+    private readonly InputAction m_Movement_Walk;
+    private readonly InputAction m_Movement_Sprint;
     public struct MovementActions
     {
         private @CharacterInput m_Wrapper;
         public MovementActions(@CharacterInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Jump => m_Wrapper.m_Movement_Jump;
+        public InputAction @Walk => m_Wrapper.m_Movement_Walk;
+        public InputAction @Sprint => m_Wrapper.m_Movement_Sprint;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -206,6 +252,12 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Jump.started += instance.OnJump;
             @Jump.performed += instance.OnJump;
             @Jump.canceled += instance.OnJump;
+            @Walk.started += instance.OnWalk;
+            @Walk.performed += instance.OnWalk;
+            @Walk.canceled += instance.OnWalk;
+            @Sprint.started += instance.OnSprint;
+            @Sprint.performed += instance.OnSprint;
+            @Sprint.canceled += instance.OnSprint;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -216,6 +268,12 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
             @Jump.started -= instance.OnJump;
             @Jump.performed -= instance.OnJump;
             @Jump.canceled -= instance.OnJump;
+            @Walk.started -= instance.OnWalk;
+            @Walk.performed -= instance.OnWalk;
+            @Walk.canceled -= instance.OnWalk;
+            @Sprint.started -= instance.OnSprint;
+            @Sprint.performed -= instance.OnSprint;
+            @Sprint.canceled -= instance.OnSprint;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -237,5 +295,7 @@ public partial class @CharacterInput: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnWalk(InputAction.CallbackContext context);
+        void OnSprint(InputAction.CallbackContext context);
     }
 }

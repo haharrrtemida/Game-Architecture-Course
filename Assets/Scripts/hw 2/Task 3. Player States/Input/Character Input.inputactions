@@ -22,6 +22,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Walk",
+                    "type": "PassThrough",
+                    "id": "6644458b-4eb3-45de-afbe-0b747411aadb",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Sprint",
+                    "type": "PassThrough",
+                    "id": "eca83d1b-ce7f-4d17-afd6-2bcab6999c5b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -90,6 +108,28 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "f651ac3e-714f-4da0-b454-36e18b43cbc5",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "Hold(duration=0.1,pressPoint=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Walk",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4f123e65-b95b-47e9-9cf4-b69ba4079a01",
+                    "path": "<Keyboard>/leftShift",
+                    "interactions": "Hold(duration=0.1,pressPoint=0.1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Sprint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
