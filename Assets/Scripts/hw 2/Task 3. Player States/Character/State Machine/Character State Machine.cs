@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace hw2
+namespace hw2.task3
 {    
     class CharacterStateMachine : IStateSwitcher
     {

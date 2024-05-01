@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace hw2
+namespace hw2.task3
 {  
     public abstract class MovementState : IState
     {
