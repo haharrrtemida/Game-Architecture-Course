@@ -5,13 +5,13 @@ namespace hw2.task3
 {    
     class CharacterStateMachine : IStateSwitcher
     {
-        private List<IState> _states;
-        private IState _currentState;
+        private List<IPlayerState> _states;
+        private IPlayerState _currentState;
 
         public CharacterStateMachine(Character character)
         {
             StateMachineData data = new StateMachineData();
-            _states = new List<IState>()
+            _states = new List<IPlayerState>()
             {
                 new IdlingState(this, data, character),
                 new WalkingState(this, data, character),
@@ -27,7 +27,7 @@ namespace hw2.task3
 
         public void SwitchState<T>() where T : IState
         {
-            IState state = _states.FirstOrDefault(state => state is T);
+            IPlayerState state = _states.FirstOrDefault(state => state is T);
             
             _currentState.Exit();
             _currentState = state;

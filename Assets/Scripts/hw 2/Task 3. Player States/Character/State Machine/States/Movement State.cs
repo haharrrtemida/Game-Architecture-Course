@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace hw2.task3
 {  
-    public abstract class MovementState : IState
+    public abstract class MovementState : IPlayerState
     {
         protected readonly IStateSwitcher StateSwitcher;
         protected readonly StateMachineData Data;
