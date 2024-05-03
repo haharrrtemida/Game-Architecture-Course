@@ -15,18 +15,17 @@ namespace hw2.task2
         {
             base.Enter();
 
-            Data.Speed = _config.Speed;
-
             Agent.SetDestination(WorkerTarget.Position);
+            Agent.speed = _config.Speed;
 
-            // View.StartRunning();
+            View.StartWalking();
         }
 
         public override void Exit()
         {
             base.Exit();
             
-            // View.StopRunning();
+            View.StopWalking();
         }
 
         public override void Update()
@@ -48,5 +47,7 @@ namespace hw2.task2
         }
 
         private bool IsTargetReached() => Vector3.Distance(WorkerPosition, WorkerTarget.Position) <= _config.StopingDistance;
+
+        
     }
 }

@@ -8,6 +8,7 @@ namespace hw2.task2
     {
         [SerializeField] private WorkerConfig _config;
         [SerializeField] private AssetHub _assetHub;
+        [SerializeField] private WorkerView _view;
         private NavMeshAgent _agent;
         private WorkerStateMachine _stateMachine;
         private NPCTarget _target;
@@ -15,10 +16,12 @@ namespace hw2.task2
         public NavMeshAgent NavMeshAgent => _agent;
         public WorkerConfig Config => _config;
         public NPCTarget Target => _target;
+        public WorkerView View => _view;
 
         private void Awake()
         {
             _assetHub.Initialize();
+            _view.Initialize();
             _agent = GetComponent<NavMeshAgent>();
             _stateMachine = new WorkerStateMachine(this);
             _target = _assetHub.NPCTargets[NPCTargetType.Home];

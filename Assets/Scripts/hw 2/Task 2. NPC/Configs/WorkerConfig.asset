@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WorkerConfig
   m_EditorClassIdentifier: 
   _walkingStateConfig:
-    <Speed>k__BackingField: 3
+    <Speed>k__BackingField: 1.5
     <StopingDistance>k__BackingField: 0.1
   _busyStateConfig:
     <Time>k__BackingField: 4

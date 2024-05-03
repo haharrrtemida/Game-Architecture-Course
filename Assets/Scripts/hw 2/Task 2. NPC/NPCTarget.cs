@@ -5,8 +5,9 @@ namespace hw2.task2
     public class NPCTarget : MonoBehaviour
     {
         [SerializeField] private NPCTargetType _type;
+        [SerializeField] private Transform _point;
 
         public NPCTargetType TargetType => _type;
-        public Vector3 Position => transform.position;
+        public Vector3 Position => _point.position;
     }
 }

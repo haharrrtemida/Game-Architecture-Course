@@ -18,6 +18,7 @@ namespace hw2.task2
         protected Vector3 WorkerPosition => _worker.transform.position;
         protected NPCTarget WorkerTarget => _worker.Target;
         protected UnityEngine.AI.NavMeshAgent Agent => _worker.NavMeshAgent;
+        protected WorkerView View => _worker.View;
 
         public virtual void Enter()
         {

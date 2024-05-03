@@ -22,8 +22,11 @@ namespace hw2.task2
         public override void Enter()
         {
             base.Enter();
+
             _timer = new Timer(_config.Time);
             _timer.OnTimerEnd += HandleTimerEnd;
+
+            View.StartBusy();
         }
 
         public override void Update()
@@ -38,6 +41,8 @@ namespace hw2.task2
             base.Exit();
 
             _timer.OnTimerEnd -= HandleTimerEnd;
+
+            View.StopBusy();
         }
 
         private void HandleTimerEnd()

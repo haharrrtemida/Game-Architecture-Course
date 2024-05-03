@@ -10,7 +10,14 @@ namespace hw2.task2
         {
             base.Enter();
 
-            Data.Speed = 0;
+            View.StartResting();
+        }
+
+        public override void Exit()
+        {
+            base.Exit();
+
+            View.StopResting();
         }
     }
 }
