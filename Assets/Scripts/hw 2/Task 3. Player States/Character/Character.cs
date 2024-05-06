@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace hw2.task3
+namespace hw2.task3.PlayerState
 {  
     [RequireComponent(typeof(CharacterController))]
     public class Character : MonoBehaviour

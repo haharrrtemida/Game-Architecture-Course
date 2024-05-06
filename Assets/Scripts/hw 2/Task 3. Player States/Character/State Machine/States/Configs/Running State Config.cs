@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace hw2.task3
+namespace hw2.task3.PlayerState
 {
     [Serializable]
     public class RunningStateConfig

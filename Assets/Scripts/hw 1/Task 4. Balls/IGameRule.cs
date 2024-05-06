@@ -1,8 +1,11 @@
 using System;
 
-public interface IGameRule
+namespace hw1.task4
 {
-    event Action OnWinGame;
-    event Action OnLoseGame;
-    abstract void CheckBurstBall(Ball ball);
+    public interface IGameRule
+    {
+        event Action OnWinGame;
+        event Action OnLoseGame;
+        abstract void CheckBurstBall(Ball ball);
+    }
 }

@@ -1,18 +1,21 @@
 using UnityEngine;
 
-public class Trader : MonoBehaviour
+namespace hw1.task3
 {
-    public ITraderState State { get; private set; }
-
-    private void Awake()
+    public class Trader : MonoBehaviour
     {
-        SetState(new NoTradeBehaviour());
-    }
+        public ITraderState State { get; private set; }
 
-    public void SetState(ITraderState newState)
-    {
-        State?.StopState();
-        State = newState;
-        State.StartState();
+        private void Awake()
+        {
+            SetState(new NoTradeBehaviour());
+        }
+
+        public void SetState(ITraderState newState)
+        {
+            State?.StopState();
+            State = newState;
+            State.StartState();
+        }
     }
 }

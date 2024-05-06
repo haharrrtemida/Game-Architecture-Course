@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace hw2.task2
+namespace hw2.task2.NPC
 {
     public class BusyState : NPCState
     {

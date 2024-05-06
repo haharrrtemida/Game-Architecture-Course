@@ -1,7 +1,10 @@
-public class ArmorTrader : BaseTrader
+namespace hw1.task3
 {
-    protected override void PresentProduct()
+    public class ArmorTrader : BaseTrader
     {
-        print("Покупай броню, крепкая, надёжная");
+        protected override void PresentProduct()
+        {
+            print("Покупай броню, крепкая, надёжная");
+        }
     }
 }

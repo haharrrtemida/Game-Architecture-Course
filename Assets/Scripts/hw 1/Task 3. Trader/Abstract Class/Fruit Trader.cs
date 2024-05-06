@@ -1,7 +1,10 @@
-public class FruitTrader : BaseTrader
+namespace hw1.task3
 {
-    protected override void PresentProduct()
+    public class FruitTrader : BaseTrader
     {
-        print("Покупай фрукты, всё свежее");
+        protected override void PresentProduct()
+        {
+            print("Покупай фрукты, всё свежее");
+        }
     }
 }

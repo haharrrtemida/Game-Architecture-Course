@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class TradeZoneAbstract : MonoBehaviour
+namespace hw1.task3
 {
-    private BaseTrader _parentTrader;
-
-    private void Awake()
+    public class TradeZoneAbstract : MonoBehaviour
     {
-        _parentTrader = transform.parent.GetComponent<BaseTrader>();
-    }
+        private BaseTrader _parentTrader;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        _parentTrader.Trade();
+        private void Awake()
+        {
+            _parentTrader = transform.parent.GetComponent<BaseTrader>();
+        }
+
+        private void OnTriggerEnter(Collider other)
+        {
+            _parentTrader.Trade();
+        }
     }
 }

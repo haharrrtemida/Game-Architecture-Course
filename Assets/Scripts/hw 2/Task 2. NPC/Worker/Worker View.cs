@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace hw2.task2
+namespace hw2.task2.NPC
 {
     [RequireComponent(typeof(Animator))]
     public class WorkerView : MonoBehaviour

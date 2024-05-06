@@ -1,6 +1,7 @@
 using UnityEngine;
+using hw2;
 
-namespace hw2.task2
+namespace hw2.task2.NPC
 {
     public abstract class NPCState : INPCState
     {

@@ -1,29 +1,32 @@
-class BurstOneColoredBallsRule : GameRule
+namespace hw1.task4
 {
-    private BallColor _targetCollor;
-    private GameManager _parent;
-
-    public BurstOneColoredBallsRule(GameManager parent, BallColor ballColor)
+    class BurstOneColoredBallsRule : GameRule
     {
-        _parent = parent;
-        _targetCollor = ballColor;
-    }
+        private BallColor _targetCollor;
+        private GameManager _parent;
 
-    public BallColor TargetCollor => _targetCollor;
-
-    public override void CheckBurstBall(Ball ball)
-    {
-        if (ball.BallColor == TargetCollor)
+        public BurstOneColoredBallsRule(GameManager parent, BallColor ballColor)
         {
-            int leftBalls = _parent.Spawner.GetBallsCount(TargetCollor);
-            if (leftBalls == 0)
-            {
-                WinGame();
-            }
+            _parent = parent;
+            _targetCollor = ballColor;
         }
-        else
+
+        public BallColor TargetCollor => _targetCollor;
+
+        public override void CheckBurstBall(Ball ball)
         {
-            LoseGame();
+            if (ball.BallColor == TargetCollor)
+            {
+                int leftBalls = _parent.Spawner.GetBallsCount(TargetCollor);
+                if (leftBalls == 0)
+                {
+                    WinGame();
+                }
+            }
+            else
+            {
+                LoseGame();
+            }
         }
     }
 }

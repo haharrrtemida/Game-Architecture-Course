@@ -1,51 +1,54 @@
 using System;
 using UnityEngine;
 
-public class GunInputHandler : MonoBehaviour
+namespace hw1.task2
 {
-    public event Action<Gun> OnGunChanged;
-    public event Action<Gun> OnGunInfoChanged;
-    [SerializeField] private Gun[] _guns;
-    private Gun _currentGun;
-
-    public Gun CurrentGun => _currentGun;
-
-    private void Awake()
+    public class GunInputHandler : MonoBehaviour
     {
-        SwitchGun(_guns[0]);
-    }
+        public event Action<Gun> OnGunChanged;
+        public event Action<Gun> OnGunInfoChanged;
+        [SerializeField] private Gun[] _guns;
+        private Gun _currentGun;
 
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            _currentGun.Fire();
-            OnGunInfoChanged?.Invoke(_currentGun);
-        }
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            _currentGun.Reload();
-            OnGunInfoChanged?.Invoke(_currentGun);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        public Gun CurrentGun => _currentGun;
+
+        private void Awake()
         {
             SwitchGun(_guns[0]);
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SwitchGun(_guns[1]);
-        }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SwitchGun(_guns[2]);
-        }
-    }
 
-    private void SwitchGun(Gun weapon)
-    {
-        _currentGun?.Unequip();
-        _currentGun = weapon;
-        _currentGun.Equip();
-        OnGunChanged?.Invoke(_currentGun);
+        private void Update()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                _currentGun.Fire();
+                OnGunInfoChanged?.Invoke(_currentGun);
+            }
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                _currentGun.Reload();
+                OnGunInfoChanged?.Invoke(_currentGun);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                SwitchGun(_guns[0]);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                SwitchGun(_guns[1]);
+            }
+            if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                SwitchGun(_guns[2]);
+            }
+        }
+
+        private void SwitchGun(Gun weapon)
+        {
+            _currentGun?.Unequip();
+            _currentGun = weapon;
+            _currentGun.Equip();
+            OnGunChanged?.Invoke(_currentGun);
+        }
     }
 }

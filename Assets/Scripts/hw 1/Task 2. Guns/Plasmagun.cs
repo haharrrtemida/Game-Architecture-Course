@@ -1,3 +1,4 @@
-using UnityEngine;
-
-public class Plasmagun : Gun { }
+namespace hw1.task2
+{
+    public class Plasmagun : Gun { }
+}

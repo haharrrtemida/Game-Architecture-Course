@@ -1,6 +1,6 @@
 using UnityEngine.InputSystem;
 
-namespace hw2.task3
+namespace hw2.task3.PlayerState
 {
     public class GroundedState : MovementState
     {

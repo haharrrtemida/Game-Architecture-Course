@@ -1,12 +1,15 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody))]
-public class Projectile : MonoBehaviour
+namespace hw1.task2
 {
-    [SerializeField] private float _lifetime;
-
-    private void Awake()
+    [RequireComponent(typeof(Rigidbody))]
+    public class Projectile : MonoBehaviour
     {
-        Destroy(gameObject, _lifetime);
+        [SerializeField] private float _lifetime;
+
+        private void Awake()
+        {
+            Destroy(gameObject, _lifetime);
+        }
     }
 }

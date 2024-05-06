@@ -1,18 +1,20 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public abstract class BaseTrader : MonoBehaviour
+namespace hw1.task3
 {
-    public virtual void Trade()
+    public abstract class BaseTrader : MonoBehaviour
     {
-        SayHello();
-        PresentProduct();
-    }
+        public virtual void Trade()
+        {
+            SayHello();
+            PresentProduct();
+        }
 
-    protected abstract void PresentProduct();
-    
-    private void SayHello()
-    {
-        print("Привет, друг!");
+        protected abstract void PresentProduct();
+        
+        private void SayHello()
+        {
+            print("Привет, друг!");
+        }
     }
 }

@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace hw2.task2
+namespace hw2.task2.NPC
 {
     public class WorkerStateMachine : IStateSwitcher
     {

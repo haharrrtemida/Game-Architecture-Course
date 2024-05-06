@@ -1,18 +1,21 @@
-class BurstAllBallsRule : GameRule
+namespace hw1.task4
 {
-    private GameManager _parent;
-    
-    public BurstAllBallsRule(GameManager parent)
+    class BurstAllBallsRule : GameRule
     {
-        _parent = parent;
-    }
-
-    public override void CheckBurstBall(Ball ball)
-    {
-        int leftBalls = _parent.Spawner.BallsCollection.Count;
-        if (leftBalls == 0)
+        private GameManager _parent;
+        
+        public BurstAllBallsRule(GameManager parent)
         {
-            WinGame();
+            _parent = parent;
+        }
+
+        public override void CheckBurstBall(Ball ball)
+        {
+            int leftBalls = _parent.Spawner.BallsCollection.Count;
+            if (leftBalls == 0)
+            {
+                WinGame();
+            }
         }
     }
 }

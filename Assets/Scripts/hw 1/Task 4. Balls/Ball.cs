@@ -1,43 +1,45 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-[RequireComponent(typeof(MeshRenderer))]
-public class Ball : MonoBehaviour
+namespace hw1.task4
 {
-    public event Action<Ball> OnBallClicked;
-    
-    [SerializeField] private BallColor _ballColor;
-    private MeshRenderer _renderer;
-
-    public BallColor BallColor => _ballColor;
-
-    private void Awake()
+    [RequireComponent(typeof(MeshRenderer))]
+    public class Ball : MonoBehaviour
     {
-        _renderer = GetComponent<MeshRenderer>();
+        public event Action<Ball> OnBallClicked;
+        
+        [SerializeField] private BallColor _ballColor;
+        private MeshRenderer _renderer;
+
+        public BallColor BallColor => _ballColor;
+
+        private void Awake()
+        {
+            _renderer = GetComponent<MeshRenderer>();
+        }
+
+        private void OnMouseDown()
+        {
+            Destroy(gameObject);
+            OnBallClicked?.Invoke(this);
+        }
+
+        public void Initialize(BallColor color, Material material)
+        {
+            _ballColor = color;
+            SetMaterial(material);
+        }
+        
+        private void SetMaterial(Material material)
+        {
+            _renderer.material = material;
+        }
     }
 
-    private void OnMouseDown()
+    public enum BallColor
     {
-        Destroy(gameObject);
-        OnBallClicked?.Invoke(this);
+        Red,
+        White,
+        Green
     }
-
-    public void Initialize(BallColor color, Material material)
-    {
-        _ballColor = color;
-        SetMaterial(material);
-    }
-    
-    private void SetMaterial(Material material)
-    {
-        _renderer.material = material;
-    }
-}
-
-public enum BallColor
-{
-    Red,
-    White,
-    Green
 }

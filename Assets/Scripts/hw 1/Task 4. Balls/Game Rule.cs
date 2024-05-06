@@ -1,22 +1,25 @@
 using System;
 using UnityEngine;
 
-public abstract class GameRule : IGameRule
+namespace hw1.task4
 {
-    public event Action OnWinGame;
-    public event Action OnLoseGame;
-
-    public abstract void CheckBurstBall(Ball ball);
-
-    protected virtual void WinGame()
+    public abstract class GameRule : IGameRule
     {
-        Debug.Log("Вы победили!");
-        OnWinGame?.Invoke();
-    }
+        public event Action OnWinGame;
+        public event Action OnLoseGame;
 
-    protected virtual void LoseGame()
-    {
-        Debug.Log("Вы проиграли!");
-        OnLoseGame?.Invoke();
+        public abstract void CheckBurstBall(Ball ball);
+
+        protected virtual void WinGame()
+        {
+            Debug.Log("Вы победили!");
+            OnWinGame?.Invoke();
+        }
+
+        protected virtual void LoseGame()
+        {
+            Debug.Log("Вы проиграли!");
+            OnLoseGame?.Invoke();
+        }
     }
 }

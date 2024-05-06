@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace hw2.task2
+namespace hw2.task2.NPC
 {
     [RequireComponent(typeof(NavMeshAgent))]
     public class WorkerNPC : MonoBehaviour

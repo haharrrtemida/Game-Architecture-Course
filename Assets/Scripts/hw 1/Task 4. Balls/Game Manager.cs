@@ -1,44 +1,47 @@
 using TMPro;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+namespace hw1.task4
 {
-    [SerializeField] private BallsSpawner _spawner;
-    [SerializeField] private TextMeshProUGUI _resultText;
-    private IGameRule _gameRule;
-
-    public BallsSpawner Spawner => _spawner;
-
-    public void SetGameRule(GameRule rule)
+    public class GameManager : MonoBehaviour
     {
-        _gameRule = rule;
-        _spawner.Initialize();
-        foreach (Ball ball in _spawner.BallsCollection)
+        [SerializeField] private BallsSpawner _spawner;
+        [SerializeField] private TextMeshProUGUI _resultText;
+        private IGameRule _gameRule;
+
+        public BallsSpawner Spawner => _spawner;
+
+        public void SetGameRule(GameRule rule)
         {
-            ball.OnBallClicked += _spawner.RemoveBallFromCollection;
-            ball.OnBallClicked += _gameRule.CheckBurstBall;
-            _gameRule.OnWinGame += SetwResultWinText;
-            _gameRule.OnLoseGame += SetwResultLoseText;
+            _gameRule = rule;
+            _spawner.Initialize();
+            foreach (Ball ball in _spawner.BallsCollection)
+            {
+                ball.OnBallClicked += _spawner.RemoveBallFromCollection;
+                ball.OnBallClicked += _gameRule.CheckBurstBall;
+                _gameRule.OnWinGame += SetwResultWinText;
+                _gameRule.OnLoseGame += SetwResultLoseText;
+            }
         }
-    }
 
-    private void SetwResultWinText()
-    {
-        _resultText.text = "Вы победили!";
-        DeactivateAllBalls();
-    }
-
-    private void SetwResultLoseText()
-    {
-        _resultText.text = "Вы проиграли!";
-        DeactivateAllBalls();
-    }
-
-    private void DeactivateAllBalls()
-    {
-        foreach (Ball ball in Spawner.BallsCollection)
+        private void SetwResultWinText()
         {
-            Destroy(ball.GetComponent<Ball>());
+            _resultText.text = "Вы победили!";
+            DeactivateAllBalls();
+        }
+
+        private void SetwResultLoseText()
+        {
+            _resultText.text = "Вы проиграли!";
+            DeactivateAllBalls();
+        }
+
+        private void DeactivateAllBalls()
+        {
+            foreach (Ball ball in Spawner.BallsCollection)
+            {
+                Destroy(ball.GetComponent<Ball>());
+            }
         }
     }
 }

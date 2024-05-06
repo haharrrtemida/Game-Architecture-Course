@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace hw2.task2
+namespace hw2.task2.NPC
 {
     [Serializable]
     public class WalkingStateConfig

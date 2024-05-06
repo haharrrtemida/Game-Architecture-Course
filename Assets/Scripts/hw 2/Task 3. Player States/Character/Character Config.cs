@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace hw2.task3
+namespace hw2.task3.PlayerState
 {  
     [CreateAssetMenu(fileName = "CharacterConfig", menuName = "Configs/CharacterConfig")]
     public class CharacterConfig : ScriptableObject

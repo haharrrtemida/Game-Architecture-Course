@@ -1,6 +1,9 @@
-public interface ITraderState
+namespace hw1.task3
 {
-    void StartState();
-    void UpdateState();
-    void StopState();
+    public interface ITraderState
+    {
+        void StartState();
+        void UpdateState();
+        void StopState();
+    }
 }
