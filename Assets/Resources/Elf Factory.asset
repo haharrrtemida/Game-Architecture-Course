@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6ea596c69341b04e9f501ddd1af7538, type: 3}
+  m_Name: Elf Factory
+  m_EditorClassIdentifier: 
+  <ElfWizardConfig>k__BackingField:
+    Prefab: {fileID: 95196534278685024, guid: 7d09577f24c211540a08c10f46cf4dac, type: 3}
+    Lifetime: 3
+  <ElfPaladinConfig>k__BackingField:
+    Prefab: {fileID: 8827587713648012383, guid: d39a368497c50654b99a77f7680f9b79, type: 3}
+    Lifetime: 4
