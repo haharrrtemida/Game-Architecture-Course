@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -26,6 +25,20 @@ namespace hw3.task2
 
         private void OnDestroy() => _timer.OnTimerEnd -= Spawn;
 
+        public void ChangeFabric()
+        {
+            switch (_race)
+            {
+                case EnemyRace.Orc:
+                    _race = EnemyRace.Elf;
+                    break;
+                case EnemyRace.Elf:
+                    _race = EnemyRace.Orc;
+                    break;
+            }
+            InitFabric(_race);
+        }
+        
         private void Spawn()
         {
             _timer.Reset();
@@ -62,5 +75,6 @@ namespace hw3.task2
             }
             _currentFactory = factory as EnemyFactory;
         }
+
     }
 }
