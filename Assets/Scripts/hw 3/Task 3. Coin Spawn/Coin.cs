@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-namespace hw3.task2
+namespace hw3.task3
 {
-    public abstract class Enemy : MonoBehaviour, ISpawnableObject
+    public class Coin : MonoBehaviour, ISpawnableObject
     {
         public event Action<ISpawnableObject> OnLifetimeEnded;
 

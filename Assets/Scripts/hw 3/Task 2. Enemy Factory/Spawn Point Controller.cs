@@ -1,27 +1,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace hw3.task2
+namespace hw3
 {   
     public class SpawnPointController : MonoBehaviour
     {
         [SerializeField] private List<Transform> _spawnPoints;
         
-        private Dictionary<Enemy, Transform> _busySpawnPoints;
+        private Dictionary<ISpawnableObject, Transform> _busySpawnPoints;
 
         public List<Transform> SpawnPoints => _spawnPoints;
 
+        public bool HasEmptyPoint => _spawnPoints.Count > 0;
+
         private void Awake()
         {
-            _busySpawnPoints = new Dictionary<Enemy, Transform>();
+            _busySpawnPoints = new Dictionary<ISpawnableObject, Transform>();
         }
 
-        public void TakePoint(Enemy enemy)
+        public void TakePoint(ISpawnableObject enemy)
         {
             Transform point = GetFreePoint();
             _busySpawnPoints.Add(enemy, point);
             enemy.OnLifetimeEnded += ReleasePoint;
-            enemy.transform.position = point.position;
+            enemy.SetPosition(point.position);
         }
 
         private Transform GetFreePoint()
@@ -32,12 +34,11 @@ namespace hw3.task2
             return point;
         }
 
-        private void ReleasePoint(Enemy enemy)
+        private void ReleasePoint(ISpawnableObject enemy)
         {
             Transform point = _busySpawnPoints[enemy];
             _busySpawnPoints.Remove(enemy);
             _spawnPoints.Add(point);
         }
-
     }
 }

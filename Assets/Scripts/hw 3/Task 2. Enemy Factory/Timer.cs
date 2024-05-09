@@ -1,6 +1,6 @@
 using System;
 
-namespace hw3.task2
+namespace hw3
 {
     public class Timer
     {

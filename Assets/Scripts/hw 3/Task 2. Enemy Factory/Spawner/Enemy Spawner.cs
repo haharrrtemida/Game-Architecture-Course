@@ -37,7 +37,6 @@ namespace hw3.task2
             
 
             Debug.Log($"Заспавнил {spawnedEnemy}");
-            
         }
 
         private int GetRandomEnemyType()
@@ -46,7 +45,6 @@ namespace hw3.task2
             int randomType = Random.Range(0, enemyTypesCount);
             return randomType;
         }
-
 
         private void InitFabric(EnemyRace race)
         {
@@ -64,9 +62,5 @@ namespace hw3.task2
             }
             _currentFactory = factory as EnemyFactory;
         }
-
-        
-
-        
     }
 }
