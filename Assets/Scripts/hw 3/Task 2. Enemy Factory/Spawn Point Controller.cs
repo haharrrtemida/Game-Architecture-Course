@@ -36,9 +36,28 @@ namespace hw3
 
         private void ReleasePoint(ISpawnableObject enemy)
         {
+            enemy.OnLifetimeEnded -= ReleasePoint;
+
             Transform point = _busySpawnPoints[enemy];
             _busySpawnPoints.Remove(enemy);
             _spawnPoints.Add(point);
+        }
+
+        [ContextMenu("Despawn Item")]
+        private void DespawnItem()
+        {
+            if (_busySpawnPoints.Count < 0)
+                return;
+
+            ISpawnableObject item = GetRandomSpawnedObject();
+            Destroy((item as MonoBehaviour).gameObject);
+        }
+
+        private ISpawnableObject GetRandomSpawnedObject()
+        {
+            List<ISpawnableObject> keys = new List<ISpawnableObject>(_busySpawnPoints.Keys);
+            int index = Random.Range(0, keys.Count);
+            return keys[index];
         }
     }
 }
